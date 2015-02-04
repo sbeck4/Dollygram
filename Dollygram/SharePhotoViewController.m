@@ -48,7 +48,7 @@ shouldChangeTextInRange:(NSRange)range
     NSData *imageData = UIImageJPEGRepresentation(self.thumbnailImage.image, 0.8f);
     self.photoFile = [PFFile fileWithData:imageData];
 
-    [photo setObject:self.photoFile forKey:@"Photo"];
+    [photo setObject:self.photoFile forKey:@"PhotoZ"];
     [photo setObject:[PFUser currentUser].objectId forKey:@"PhotoPoster"];
     [photo setObject:self.commentsTextField.text forKey:@"PhotoDescription"];
 

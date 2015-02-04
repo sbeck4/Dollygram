@@ -7,6 +7,7 @@
 //
 
 #import "HomeFeedViewController.h"
+#import "CustomTableViewCell.h"
 #import <Parse/Parse.h>
 
 @interface HomeFeedViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -32,6 +33,7 @@
     [super viewDidLoad];
     PFUser *currentUser = [PFUser currentUser];
     self.query = [PFQuery queryWithClassName:@"Photo"];
+    [self.query orderByDescending:@"createdAt"];
     //[query whereKey:@"owner" equalTo:currentUser];
 
     self.photosArray = [[NSArray alloc]init];
@@ -47,19 +49,30 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Create a cell with the properties set below.
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    self.photo = self.photosArray[indexPath.row];
+    CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
-    self.photoFile = [self.photo objectForKey:@"Photo"];
-    [self.photoFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
-     {
-         if (!error)
+        PFObject *photo = self.photosArray[indexPath.section];
+    NSLog(@"%li\n\n\n\n\n\n\n\n\n\n\n\n\n", (long)indexPath.row);
+
+        NSLog(@"%@\n\n\n\n\n\n\n\n\n\n\n\n\n", photo);
+
+        //self.photo = photo;
+        NSLog(@"%@", photo);
+
+        PFFile *file = [photo objectForKey:@"PhotoZ"];
+    NSLog(@"%@\n\n\n\n\n\n\n\n\n\n\n\n\n", file);
+      //  NSLog(@"\n\n\n\n\n\n\n\n\n\n\nThis is the file %@", file);
+        [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
          {
-             cell.imageView.image = [UIImage imageWithData:data];
-         }
-     }];
+             if (!error)
+             {
+                 cell.photoImageView.image = [UIImage imageWithData:data];
+                 //cell.photoImageView.backgroundColor = [UIColor grayColor];
+             }
+         }];
 
-    cell.detailTextLabel.text = [self.photo objectForKey:@"PhotoDescription"];
+        cell.descriptionLabel.text = [photo objectForKey:@"PhotoDescription"];
+
     return cell;
 }
 
@@ -93,7 +106,7 @@
     //View to display that 1pxl line (separator)
     UIView *headerSeparator = [[UIView alloc] initWithFrame:CGRectMake(0.0, 49.0, self.view.frame.size.width, 1.0)];
 
-    NSString *photoPoster = [self.photo objectForKey:@"PhotoPoster"];
+    NSString *photoPoster = [self.photosArray[section] objectForKey:@"PhotoPoster"];
 //    PFQuery *query2 = [PFQuery queryWithClassName:@"User"];//depricated
     PFQuery *query2 = [PFUser query];
     [query2 whereKey:@"objectId" equalTo:photoPoster];

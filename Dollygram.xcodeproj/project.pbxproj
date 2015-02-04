@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8328185D1A81DE540073ED69 /* SearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8328185C1A81DE540073ED69 /* SearchCollectionViewCell.m */; };
+		832818601A81E94A0073ED69 /* ProfileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8328185F1A81E94A0073ED69 /* ProfileCollectionViewCell.m */; };
+		8332C5A51A81D19700DFF26C /* CircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8332C5A41A81D19700DFF26C /* CircleViewController.m */; };
+		8332C5A81A81DA4300DFF26C /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8332C5A71A81DA4300DFF26C /* SearchViewController.m */; };
 		833618AD1A80324B0040D815 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 833618AC1A80324B0040D815 /* main.m */; };
 		833618B01A80324B0040D815 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 833618AF1A80324B0040D815 /* AppDelegate.m */; };
 		833618B61A80324B0040D815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833618B41A80324B0040D815 /* Main.storyboard */; };
@@ -38,8 +42,8 @@
 		8336190B1A8062C30040D815 /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833619081A8062C30040D815 /* PictureViewController.m */; };
 		8336190C1A8062C30040D815 /* ApprovalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8336190A1A8062C30040D815 /* ApprovalViewController.m */; };
 		8336190F1A806B390040D815 /* SharePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8336190E1A806B390040D815 /* SharePhotoViewController.m */; };
-		833619121A8075F00040D815 /* TakeProfilePictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833619111A8075F00040D815 /* TakeProfilePictureViewController.m */; };
 		838436C31A8184FD00D0AF7E /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 838436C21A8184FD00D0AF7E /* HomeFeedViewController.m */; };
+		838436C71A81A9E800D0AF7E /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 838436C61A81A9E800D0AF7E /* CustomTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8328185B1A81DE540073ED69 /* SearchCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCollectionViewCell.h; sourceTree = "<group>"; };
+		8328185C1A81DE540073ED69 /* SearchCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCollectionViewCell.m; sourceTree = "<group>"; };
+		8328185E1A81E94A0073ED69 /* ProfileCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileCollectionViewCell.h; sourceTree = "<group>"; };
+		8328185F1A81E94A0073ED69 /* ProfileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCollectionViewCell.m; sourceTree = "<group>"; };
+		8332C5A31A81D19700DFF26C /* CircleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleViewController.h; sourceTree = "<group>"; };
+		8332C5A41A81D19700DFF26C /* CircleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleViewController.m; sourceTree = "<group>"; };
+		8332C5A61A81DA4300DFF26C /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		8332C5A71A81DA4300DFF26C /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		833618A71A80324B0040D815 /* Dollygram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dollygram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		833618AB1A80324B0040D815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		833618AC1A80324B0040D815 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -96,10 +108,10 @@
 		8336190A1A8062C30040D815 /* ApprovalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApprovalViewController.m; sourceTree = "<group>"; };
 		8336190D1A806B390040D815 /* SharePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharePhotoViewController.h; sourceTree = "<group>"; };
 		8336190E1A806B390040D815 /* SharePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharePhotoViewController.m; sourceTree = "<group>"; };
-		833619101A8075F00040D815 /* TakeProfilePictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakeProfilePictureViewController.h; sourceTree = "<group>"; };
-		833619111A8075F00040D815 /* TakeProfilePictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakeProfilePictureViewController.m; sourceTree = "<group>"; };
 		838436C11A8184FD00D0AF7E /* HomeFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeFeedViewController.h; sourceTree = "<group>"; };
 		838436C21A8184FD00D0AF7E /* HomeFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeFeedViewController.m; sourceTree = "<group>"; };
+		838436C51A81A9E800D0AF7E /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		838436C61A81A9E800D0AF7E /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,11 +171,18 @@
 		833618A91A80324B0040D815 /* Dollygram */ = {
 			isa = PBXGroup;
 			children = (
+				838436C41A81A9CA00D0AF7E /* Model */,
 				833618AE1A80324B0040D815 /* AppDelegate.h */,
 				833618AF1A80324B0040D815 /* AppDelegate.m */,
 				833618B41A80324B0040D815 /* Main.storyboard */,
+				8328185E1A81E94A0073ED69 /* ProfileCollectionViewCell.h */,
+				8328185F1A81E94A0073ED69 /* ProfileCollectionViewCell.m */,
+				8332C5A31A81D19700DFF26C /* CircleViewController.h */,
+				8332C5A41A81D19700DFF26C /* CircleViewController.m */,
 				8336190D1A806B390040D815 /* SharePhotoViewController.h */,
 				8336190E1A806B390040D815 /* SharePhotoViewController.m */,
+				8332C5A61A81DA4300DFF26C /* SearchViewController.h */,
+				8332C5A71A81DA4300DFF26C /* SearchViewController.m */,
 				833618E61A8039900040D815 /* SettingsViewController.h */,
 				833618E71A8039900040D815 /* SettingsViewController.m */,
 				833619071A8062C30040D815 /* PictureViewController.h */,
@@ -178,8 +197,6 @@
 				833618D61A80371E0040D815 /* SignUpViewController.m */,
 				833618D81A80372B0040D815 /* ProfileViewController.h */,
 				833618D91A80372B0040D815 /* ProfileViewController.m */,
-				833619101A8075F00040D815 /* TakeProfilePictureViewController.h */,
-				833619111A8075F00040D815 /* TakeProfilePictureViewController.m */,
 				833618B71A80324B0040D815 /* Images.xcassets */,
 				833618B91A80324B0040D815 /* LaunchScreen.xib */,
 				833618AA1A80324B0040D815 /* Supporting Files */,
@@ -237,6 +254,17 @@
 				833618E01A8037460040D815 /* ParseUI.framework */,
 			);
 			path = "parse-library-1";
+			sourceTree = "<group>";
+		};
+		838436C41A81A9CA00D0AF7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				838436C51A81A9E800D0AF7E /* CustomTableViewCell.h */,
+				838436C61A81A9E800D0AF7E /* CustomTableViewCell.m */,
+				8328185B1A81DE540073ED69 /* SearchCollectionViewCell.h */,
+				8328185C1A81DE540073ED69 /* SearchCollectionViewCell.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,13 +368,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				833618D41A8037140040D815 /* LoginViewController.m in Sources */,
+				8332C5A81A81DA4300DFF26C /* SearchViewController.m in Sources */,
 				8336190F1A806B390040D815 /* SharePhotoViewController.m in Sources */,
+				838436C71A81A9E800D0AF7E /* CustomTableViewCell.m in Sources */,
+				8328185D1A81DE540073ED69 /* SearchCollectionViewCell.m in Sources */,
 				833618D71A80371E0040D815 /* SignUpViewController.m in Sources */,
 				838436C31A8184FD00D0AF7E /* HomeFeedViewController.m in Sources */,
 				833618B01A80324B0040D815 /* AppDelegate.m in Sources */,
 				8336190B1A8062C30040D815 /* PictureViewController.m in Sources */,
 				833618DA1A80372B0040D815 /* ProfileViewController.m in Sources */,
-				833619121A8075F00040D815 /* TakeProfilePictureViewController.m in Sources */,
+				832818601A81E94A0073ED69 /* ProfileCollectionViewCell.m in Sources */,
+				8332C5A51A81D19700DFF26C /* CircleViewController.m in Sources */,
 				833618AD1A80324B0040D815 /* main.m in Sources */,
 				833618E81A8039900040D815 /* SettingsViewController.m in Sources */,
 				8336190C1A8062C30040D815 /* ApprovalViewController.m in Sources */,

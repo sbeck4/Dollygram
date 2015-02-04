@@ -7,13 +7,18 @@
 //
 
 #import "ProfileViewController.h"
+#import "ProfileCollectionViewCell.h"
 
-@interface ProfileViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ProfileViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *fullNameLabel;
 @property UIActionSheet *changeProfileImageActionSheet;
 @property (strong, nonatomic) IBOutlet UIImageView *profileImage;
 @property PFFile *photoFile;
 @property NSData *profileImageData;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property PFQuery *query;
+@property PFQuery *query2;
+@property NSArray *photosArray;
 
 @end
 
@@ -46,6 +51,7 @@
 
         NSString *firstName = [currentUser objectForKey:@"firstName"];
         NSString *lastName = [currentUser objectForKey:@"lastName"];
+        
         self.photoFile = [currentUser objectForKey:@"profileImage"];
         [self.photoFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
          {
@@ -56,6 +62,16 @@
          }];
         self.fullNameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
         self.navigationItem.title = [currentUser username];
+        
+        self.query = [PFQuery queryWithClassName:@"Photo"];
+        //[self.query orderByDescending:@"createdAt"];
+        [self.query whereKey:@"PhotoPoster" equalTo:currentUser.objectId];
+        //[self.query whereKey:@"owner" equalTo:currentUser.objectId];
+
+        self.photosArray = [[NSArray alloc]init];
+        self.photosArray = [self.query findObjects];
+
+        
 
     }
     else
@@ -65,9 +81,12 @@
 
 }
 
+
 - (void)viewDidDisappear:(BOOL)animated
 {
-    self.photoFile = nil;
+   // self.photoFile = nil;
+    [super viewDidDisappear:YES];
+    self.profileImage.image = [UIImage imageNamed:@"profile-icon"];
 }
 
 - (IBAction)profilePictureTapped:(id)sender
@@ -101,6 +120,30 @@
     }
 
 }
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ProfileCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+
+    PFObject *photo = self.photosArray[indexPath.row];
+
+    PFFile *file = [photo objectForKey:@"PhotoZ"];
+    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+     {
+         if (!error)
+         {
+             cell.profileImageView.image = [UIImage imageWithData:data];
+         }
+     }];
+
+    return cell;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.photosArray.count;
+}
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 

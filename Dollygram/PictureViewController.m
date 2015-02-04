@@ -12,6 +12,8 @@
 
 @interface PictureViewController ()
 
+
+
 @end
 
 @implementation PictureViewController
@@ -31,6 +33,8 @@
 
     }
 }
+
+
 
 - (IBAction)onTakePictureButtonPressed:(UIButton *)sender
 {
