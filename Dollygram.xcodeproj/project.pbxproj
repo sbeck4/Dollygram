@@ -9,11 +9,37 @@
 /* Begin PBXBuildFile section */
 		833618AD1A80324B0040D815 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 833618AC1A80324B0040D815 /* main.m */; };
 		833618B01A80324B0040D815 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 833618AF1A80324B0040D815 /* AppDelegate.m */; };
-		833618B31A80324B0040D815 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833618B21A80324B0040D815 /* ViewController.m */; };
 		833618B61A80324B0040D815 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833618B41A80324B0040D815 /* Main.storyboard */; };
 		833618B81A80324B0040D815 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 833618B71A80324B0040D815 /* Images.xcassets */; };
 		833618BB1A80324B0040D815 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 833618B91A80324B0040D815 /* LaunchScreen.xib */; };
 		833618C71A80324B0040D815 /* DollygramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 833618C61A80324B0040D815 /* DollygramTests.m */; };
+		833618D41A8037140040D815 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833618D31A8037140040D815 /* LoginViewController.m */; };
+		833618D71A80371E0040D815 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833618D61A80371E0040D815 /* SignUpViewController.m */; };
+		833618DA1A80372B0040D815 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833618D91A80372B0040D815 /* ProfileViewController.m */; };
+		833618E11A8037460040D815 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618DC1A8037460040D815 /* Bolts.framework */; };
+		833618E21A8037460040D815 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618DD1A8037460040D815 /* Parse.framework */; };
+		833618E31A8037460040D815 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618DE1A8037460040D815 /* ParseCrashReporting.framework */; };
+		833618E41A8037460040D815 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618DF1A8037460040D815 /* ParseFacebookUtils.framework */; };
+		833618E51A8037460040D815 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618E01A8037460040D815 /* ParseUI.framework */; };
+		833618E81A8039900040D815 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833618E71A8039900040D815 /* SettingsViewController.m */; };
+		833618F61A803BFE0040D815 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618E91A803BFE0040D815 /* Accounts.framework */; };
+		833618F71A803BFE0040D815 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618EA1A803BFE0040D815 /* AudioToolbox.framework */; };
+		833618F81A803BFE0040D815 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618EB1A803BFE0040D815 /* CFNetwork.framework */; };
+		833618F91A803BFE0040D815 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618EC1A803BFE0040D815 /* CoreGraphics.framework */; };
+		833618FA1A803BFE0040D815 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618ED1A803BFE0040D815 /* CoreLocation.framework */; };
+		833618FB1A803BFE0040D815 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618EE1A803BFE0040D815 /* libsqlite3.dylib */; };
+		833618FC1A803BFE0040D815 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618EF1A803BFE0040D815 /* libz.dylib */; };
+		833618FD1A803BFE0040D815 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618F01A803BFE0040D815 /* MobileCoreServices.framework */; };
+		833618FE1A803BFE0040D815 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618F11A803BFE0040D815 /* QuartzCore.framework */; };
+		833618FF1A803BFE0040D815 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618F21A803BFE0040D815 /* Security.framework */; };
+		833619001A803BFE0040D815 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618F31A803BFE0040D815 /* Social.framework */; };
+		833619011A803BFE0040D815 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618F41A803BFE0040D815 /* StoreKit.framework */; };
+		833619021A803BFE0040D815 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833618F51A803BFE0040D815 /* SystemConfiguration.framework */; };
+		8336190B1A8062C30040D815 /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833619081A8062C30040D815 /* PictureViewController.m */; };
+		8336190C1A8062C30040D815 /* ApprovalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8336190A1A8062C30040D815 /* ApprovalViewController.m */; };
+		8336190F1A806B390040D815 /* SharePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8336190E1A806B390040D815 /* SharePhotoViewController.m */; };
+		833619121A8075F00040D815 /* TakeProfilePictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 833619111A8075F00040D815 /* TakeProfilePictureViewController.m */; };
+		838436C31A8184FD00D0AF7E /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 838436C21A8184FD00D0AF7E /* HomeFeedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +58,48 @@
 		833618AC1A80324B0040D815 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		833618AE1A80324B0040D815 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		833618AF1A80324B0040D815 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		833618B11A80324B0040D815 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		833618B21A80324B0040D815 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		833618B51A80324B0040D815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		833618B71A80324B0040D815 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		833618BA1A80324B0040D815 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		833618C01A80324B0040D815 /* DollygramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DollygramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		833618C51A80324B0040D815 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		833618C61A80324B0040D815 /* DollygramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DollygramTests.m; sourceTree = "<group>"; };
+		833618D21A8037140040D815 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		833618D31A8037140040D815 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		833618D51A80371E0040D815 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		833618D61A80371E0040D815 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		833618D81A80372B0040D815 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		833618D91A80372B0040D815 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		833618DC1A8037460040D815 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "parse-library-1/Bolts.framework"; sourceTree = "<group>"; };
+		833618DD1A8037460040D815 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "parse-library-1/Parse.framework"; sourceTree = "<group>"; };
+		833618DE1A8037460040D815 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
+		833618DF1A8037460040D815 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		833618E01A8037460040D815 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		833618E61A8039900040D815 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		833618E71A8039900040D815 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		833618E91A803BFE0040D815 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		833618EA1A803BFE0040D815 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		833618EB1A803BFE0040D815 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		833618EC1A803BFE0040D815 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		833618ED1A803BFE0040D815 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		833618EE1A803BFE0040D815 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		833618EF1A803BFE0040D815 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		833618F01A803BFE0040D815 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		833618F11A803BFE0040D815 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		833618F21A803BFE0040D815 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		833618F31A803BFE0040D815 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		833618F41A803BFE0040D815 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		833618F51A803BFE0040D815 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		833619071A8062C30040D815 /* PictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewController.h; sourceTree = "<group>"; };
+		833619081A8062C30040D815 /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
+		833619091A8062C30040D815 /* ApprovalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApprovalViewController.h; sourceTree = "<group>"; };
+		8336190A1A8062C30040D815 /* ApprovalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApprovalViewController.m; sourceTree = "<group>"; };
+		8336190D1A806B390040D815 /* SharePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharePhotoViewController.h; sourceTree = "<group>"; };
+		8336190E1A806B390040D815 /* SharePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharePhotoViewController.m; sourceTree = "<group>"; };
+		833619101A8075F00040D815 /* TakeProfilePictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakeProfilePictureViewController.h; sourceTree = "<group>"; };
+		833619111A8075F00040D815 /* TakeProfilePictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakeProfilePictureViewController.m; sourceTree = "<group>"; };
+		838436C11A8184FD00D0AF7E /* HomeFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeFeedViewController.h; sourceTree = "<group>"; };
+		838436C21A8184FD00D0AF7E /* HomeFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeFeedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +107,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				833618F61A803BFE0040D815 /* Accounts.framework in Frameworks */,
+				833618F71A803BFE0040D815 /* AudioToolbox.framework in Frameworks */,
+				833618F81A803BFE0040D815 /* CFNetwork.framework in Frameworks */,
+				833618F91A803BFE0040D815 /* CoreGraphics.framework in Frameworks */,
+				833618FA1A803BFE0040D815 /* CoreLocation.framework in Frameworks */,
+				833618FB1A803BFE0040D815 /* libsqlite3.dylib in Frameworks */,
+				833618FC1A803BFE0040D815 /* libz.dylib in Frameworks */,
+				833618FD1A803BFE0040D815 /* MobileCoreServices.framework in Frameworks */,
+				833618FE1A803BFE0040D815 /* QuartzCore.framework in Frameworks */,
+				833618FF1A803BFE0040D815 /* Security.framework in Frameworks */,
+				833619001A803BFE0040D815 /* Social.framework in Frameworks */,
+				833619011A803BFE0040D815 /* StoreKit.framework in Frameworks */,
+				833619021A803BFE0040D815 /* SystemConfiguration.framework in Frameworks */,
+				833618E21A8037460040D815 /* Parse.framework in Frameworks */,
+				833618E31A8037460040D815 /* ParseCrashReporting.framework in Frameworks */,
+				833618E51A8037460040D815 /* ParseUI.framework in Frameworks */,
+				833618E41A8037460040D815 /* ParseFacebookUtils.framework in Frameworks */,
+				833618E11A8037460040D815 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,9 +161,25 @@
 			children = (
 				833618AE1A80324B0040D815 /* AppDelegate.h */,
 				833618AF1A80324B0040D815 /* AppDelegate.m */,
-				833618B11A80324B0040D815 /* ViewController.h */,
-				833618B21A80324B0040D815 /* ViewController.m */,
 				833618B41A80324B0040D815 /* Main.storyboard */,
+				8336190D1A806B390040D815 /* SharePhotoViewController.h */,
+				8336190E1A806B390040D815 /* SharePhotoViewController.m */,
+				833618E61A8039900040D815 /* SettingsViewController.h */,
+				833618E71A8039900040D815 /* SettingsViewController.m */,
+				833619071A8062C30040D815 /* PictureViewController.h */,
+				833619081A8062C30040D815 /* PictureViewController.m */,
+				833619091A8062C30040D815 /* ApprovalViewController.h */,
+				8336190A1A8062C30040D815 /* ApprovalViewController.m */,
+				833618D21A8037140040D815 /* LoginViewController.h */,
+				833618D31A8037140040D815 /* LoginViewController.m */,
+				838436C11A8184FD00D0AF7E /* HomeFeedViewController.h */,
+				838436C21A8184FD00D0AF7E /* HomeFeedViewController.m */,
+				833618D51A80371E0040D815 /* SignUpViewController.h */,
+				833618D61A80371E0040D815 /* SignUpViewController.m */,
+				833618D81A80372B0040D815 /* ProfileViewController.h */,
+				833618D91A80372B0040D815 /* ProfileViewController.m */,
+				833619101A8075F00040D815 /* TakeProfilePictureViewController.h */,
+				833619111A8075F00040D815 /* TakeProfilePictureViewController.m */,
 				833618B71A80324B0040D815 /* Images.xcassets */,
 				833618B91A80324B0040D815 /* LaunchScreen.xib */,
 				833618AA1A80324B0040D815 /* Supporting Files */,
@@ -96,6 +190,22 @@
 		833618AA1A80324B0040D815 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				833618E91A803BFE0040D815 /* Accounts.framework */,
+				833618EA1A803BFE0040D815 /* AudioToolbox.framework */,
+				833618EB1A803BFE0040D815 /* CFNetwork.framework */,
+				833618EC1A803BFE0040D815 /* CoreGraphics.framework */,
+				833618ED1A803BFE0040D815 /* CoreLocation.framework */,
+				833618EE1A803BFE0040D815 /* libsqlite3.dylib */,
+				833618EF1A803BFE0040D815 /* libz.dylib */,
+				833618F01A803BFE0040D815 /* MobileCoreServices.framework */,
+				833618F11A803BFE0040D815 /* QuartzCore.framework */,
+				833618F21A803BFE0040D815 /* Security.framework */,
+				833618F31A803BFE0040D815 /* Social.framework */,
+				833618F41A803BFE0040D815 /* StoreKit.framework */,
+				833618F51A803BFE0040D815 /* SystemConfiguration.framework */,
+				833618DC1A8037460040D815 /* Bolts.framework */,
+				833618DD1A8037460040D815 /* Parse.framework */,
+				833618DB1A8037460040D815 /* parse-library-1 */,
 				833618AB1A80324B0040D815 /* Info.plist */,
 				833618AC1A80324B0040D815 /* main.m */,
 			);
@@ -117,6 +227,16 @@
 				833618C51A80324B0040D815 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		833618DB1A8037460040D815 /* parse-library-1 */ = {
+			isa = PBXGroup;
+			children = (
+				833618DE1A8037460040D815 /* ParseCrashReporting.framework */,
+				833618DF1A8037460040D815 /* ParseFacebookUtils.framework */,
+				833618E01A8037460040D815 /* ParseUI.framework */,
+			);
+			path = "parse-library-1";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +339,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				833618B31A80324B0040D815 /* ViewController.m in Sources */,
+				833618D41A8037140040D815 /* LoginViewController.m in Sources */,
+				8336190F1A806B390040D815 /* SharePhotoViewController.m in Sources */,
+				833618D71A80371E0040D815 /* SignUpViewController.m in Sources */,
+				838436C31A8184FD00D0AF7E /* HomeFeedViewController.m in Sources */,
 				833618B01A80324B0040D815 /* AppDelegate.m in Sources */,
+				8336190B1A8062C30040D815 /* PictureViewController.m in Sources */,
+				833618DA1A80372B0040D815 /* ProfileViewController.m in Sources */,
+				833619121A8075F00040D815 /* TakeProfilePictureViewController.m in Sources */,
 				833618AD1A80324B0040D815 /* main.m in Sources */,
+				833618E81A8039900040D815 /* SettingsViewController.m in Sources */,
+				8336190C1A8062C30040D815 /* ApprovalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +471,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Dollygram/parse-library-1",
+				);
 				INFOPLIST_FILE = Dollygram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -353,6 +485,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Dollygram/parse-library-1",
+				);
 				INFOPLIST_FILE = Dollygram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -412,6 +548,7 @@
 				833618CC1A80324B0040D815 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		833618CD1A80324B0040D815 /* Build configuration list for PBXNativeTarget "DollygramTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +557,7 @@
 				833618CF1A80324B0040D815 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
