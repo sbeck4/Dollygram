@@ -137,7 +137,7 @@
 
 - (IBAction)onPictureTapped:(UITapGestureRecognizer *)sender
 {
-    CGPoint point = sender.view.center;
+    CGPoint point = [sender locationInView:self.view];
     NSIndexPath *path =
     [self animateLike];
 }
