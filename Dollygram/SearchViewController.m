@@ -8,6 +8,7 @@
 
 #import "SearchViewController.h"
 #import "SearchCollectionViewCell.h"
+#import "SearchedUserViewController.h"
 #import <Parse/Parse.h>
 
 @interface SearchViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -21,6 +22,7 @@
 @property NSArray *usersArray;
 @property PFQuery *query;
 @property PFQuery *query2;
+@property PFUser *selectedUser;
 
 
 
@@ -28,7 +30,8 @@
 
 @implementation SearchViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     //PFUser *currentUser = [PFUser currentUser];
     self.query = [PFQuery queryWithClassName:@"Photo"];
@@ -95,15 +98,27 @@
          }
      }];
 
-
-
-
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.usersArray.count;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.selectedUser = self.usersArray[indexPath.row];
+    [self performSegueWithIdentifier:@"showUserPage" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showUserPage"])
+    {
+        SearchedUserViewController *searchedVC = segue.destinationViewController;
+        searchedVC.searchedUser = self.selectedUser;
+    }
 }
 
 - (IBAction)segementButtonPressed:(UISegmentedControl *)sender
@@ -123,11 +138,6 @@
         [self.view layoutIfNeeded];
     }];
     }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

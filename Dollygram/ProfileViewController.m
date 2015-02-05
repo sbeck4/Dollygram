@@ -18,7 +18,7 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property PFQuery *query;
 @property PFQuery *query2;
-@property NSArray *photosArray;
+@property NSMutableArray *photosArray;
 
 @end
 
@@ -68,17 +68,14 @@
         [self.query whereKey:@"PhotoPoster" equalTo:currentUser.objectId];
         //[self.query whereKey:@"owner" equalTo:currentUser.objectId];
 
-        self.photosArray = [[NSArray alloc]init];
-        self.photosArray = [self.query findObjects];
-
-        
-
+        self.photosArray = [[[NSArray alloc]init]mutableCopy];
+        self.photosArray = [[self.query findObjects]mutableCopy];
+        [self.collectionView reloadData];
     }
     else
     {
         [self performSegueWithIdentifier:@"showLogin" sender:self];
     }
-
 }
 
 
@@ -87,6 +84,7 @@
    // self.photoFile = nil;
     [super viewDidDisappear:YES];
     self.profileImage.image = [UIImage imageNamed:@"profile-icon"];
+    [self.photosArray removeAllObjects];
 }
 
 - (IBAction)profilePictureTapped:(id)sender
@@ -175,6 +173,14 @@
 
 //    [self performSegueWithIdentifier:@"ApprovalSegue" sender:self];
 
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+//    if ([segue.identifier isEqualToString:@"settingsSegue"])
+//    {
+//        [self.photosArray removeAllObjects];
+//    }
 }
 
 

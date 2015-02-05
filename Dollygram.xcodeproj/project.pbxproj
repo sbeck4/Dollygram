@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8328185D1A81DE540073ED69 /* SearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8328185C1A81DE540073ED69 /* SearchCollectionViewCell.m */; };
 		832818601A81E94A0073ED69 /* ProfileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8328185F1A81E94A0073ED69 /* ProfileCollectionViewCell.m */; };
+		832818961A82DE1B0073ED69 /* SearchedUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 832818951A82DE1B0073ED69 /* SearchedUserViewController.m */; };
+		832818991A82DEC70073ED69 /* SearchedUserCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 832818981A82DEC70073ED69 /* SearchedUserCollectionViewCell.m */; };
 		8332C5A51A81D19700DFF26C /* CircleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8332C5A41A81D19700DFF26C /* CircleViewController.m */; };
 		8332C5A81A81DA4300DFF26C /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8332C5A71A81DA4300DFF26C /* SearchViewController.m */; };
 		833618AD1A80324B0040D815 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 833618AC1A80324B0040D815 /* main.m */; };
@@ -61,6 +63,10 @@
 		8328185C1A81DE540073ED69 /* SearchCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCollectionViewCell.m; sourceTree = "<group>"; };
 		8328185E1A81E94A0073ED69 /* ProfileCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileCollectionViewCell.h; sourceTree = "<group>"; };
 		8328185F1A81E94A0073ED69 /* ProfileCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCollectionViewCell.m; sourceTree = "<group>"; };
+		832818941A82DE1B0073ED69 /* SearchedUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchedUserViewController.h; path = ../SearchedUserViewController.h; sourceTree = "<group>"; };
+		832818951A82DE1B0073ED69 /* SearchedUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchedUserViewController.m; path = ../SearchedUserViewController.m; sourceTree = "<group>"; };
+		832818971A82DEC70073ED69 /* SearchedUserCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchedUserCollectionViewCell.h; sourceTree = "<group>"; };
+		832818981A82DEC70073ED69 /* SearchedUserCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchedUserCollectionViewCell.m; sourceTree = "<group>"; };
 		8332C5A31A81D19700DFF26C /* CircleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleViewController.h; sourceTree = "<group>"; };
 		8332C5A41A81D19700DFF26C /* CircleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleViewController.m; sourceTree = "<group>"; };
 		8332C5A61A81DA4300DFF26C /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
@@ -177,6 +183,8 @@
 				833618B41A80324B0040D815 /* Main.storyboard */,
 				8328185E1A81E94A0073ED69 /* ProfileCollectionViewCell.h */,
 				8328185F1A81E94A0073ED69 /* ProfileCollectionViewCell.m */,
+				832818941A82DE1B0073ED69 /* SearchedUserViewController.h */,
+				832818951A82DE1B0073ED69 /* SearchedUserViewController.m */,
 				8332C5A31A81D19700DFF26C /* CircleViewController.h */,
 				8332C5A41A81D19700DFF26C /* CircleViewController.m */,
 				8336190D1A806B390040D815 /* SharePhotoViewController.h */,
@@ -261,6 +269,8 @@
 			children = (
 				838436C51A81A9E800D0AF7E /* CustomTableViewCell.h */,
 				838436C61A81A9E800D0AF7E /* CustomTableViewCell.m */,
+				832818971A82DEC70073ED69 /* SearchedUserCollectionViewCell.h */,
+				832818981A82DEC70073ED69 /* SearchedUserCollectionViewCell.m */,
 				8328185B1A81DE540073ED69 /* SearchCollectionViewCell.h */,
 				8328185C1A81DE540073ED69 /* SearchCollectionViewCell.m */,
 			);
@@ -371,10 +381,12 @@
 				8332C5A81A81DA4300DFF26C /* SearchViewController.m in Sources */,
 				8336190F1A806B390040D815 /* SharePhotoViewController.m in Sources */,
 				838436C71A81A9E800D0AF7E /* CustomTableViewCell.m in Sources */,
+				832818961A82DE1B0073ED69 /* SearchedUserViewController.m in Sources */,
 				8328185D1A81DE540073ED69 /* SearchCollectionViewCell.m in Sources */,
 				833618D71A80371E0040D815 /* SignUpViewController.m in Sources */,
 				838436C31A8184FD00D0AF7E /* HomeFeedViewController.m in Sources */,
 				833618B01A80324B0040D815 /* AppDelegate.m in Sources */,
+				832818991A82DEC70073ED69 /* SearchedUserCollectionViewCell.m in Sources */,
 				8336190B1A8062C30040D815 /* PictureViewController.m in Sources */,
 				833618DA1A80372B0040D815 /* ProfileViewController.m in Sources */,
 				832818601A81E94A0073ED69 /* ProfileCollectionViewCell.m in Sources */,

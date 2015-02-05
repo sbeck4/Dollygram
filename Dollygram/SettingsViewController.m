@@ -30,4 +30,9 @@
     [self.tabBarController setSelectedIndex:0];
 }
 
+- (IBAction)backButtonTapped:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end

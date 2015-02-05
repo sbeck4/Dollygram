@@ -10,7 +10,7 @@
 #import "CustomTableViewCell.h"
 #import <Parse/Parse.h>
 
-@interface HomeFeedViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface HomeFeedViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property PFObject *photo;
@@ -52,21 +52,15 @@
     CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
         PFObject *photo = self.photosArray[indexPath.section];
-    NSLog(@"%li\n\n\n\n\n\n\n\n\n\n\n\n\n", (long)indexPath.row);
-
-        NSLog(@"%@\n\n\n\n\n\n\n\n\n\n\n\n\n", photo);
-
-        //self.photo = photo;
-        NSLog(@"%@", photo);
 
         PFFile *file = [photo objectForKey:@"PhotoZ"];
-    NSLog(@"%@\n\n\n\n\n\n\n\n\n\n\n\n\n", file);
-      //  NSLog(@"\n\n\n\n\n\n\n\n\n\n\nThis is the file %@", file);
         [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
          {
              if (!error)
              {
                  cell.photoImageView.image = [UIImage imageWithData:data];
+                 //[self animateLike];
+                //cell.heartImage.image = [UIImage imageNamed:@"hearts-50"];
                  //cell.photoImageView.backgroundColor = [UIColor grayColor];
              }
          }];
@@ -78,7 +72,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 505.0; // programatticly setting the cell's height to 505 pixels. Enough to display all info.
+    return 505.0; // programatticly setting the cell's height to 505 pixels. Big enough to display all info.
 }
 
 //To use custom headers (Profile photo and username) we have to create section.
@@ -119,11 +113,9 @@
      // placeholder text to the user name
     usernameLabel.textColor = [UIColor blueColor]; // placeholder text color
 
-    headerViewImage.backgroundColor = [UIColor greenColor]; // color to be replaced with image
     headerViewImage.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed: @"profile.png"]];
 
-
-    headerView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.95]; // header transparency (translucidence)
+    headerView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.95]; // header transparency (translucent)
 
     headerSeparator.backgroundColor = [UIColor grayColor]; // separator color
 
@@ -141,12 +133,41 @@
     return 50.0; // programmatically setting the header size
 }
 
-- (IBAction)onLikeButtonTapped:(UIButton *)button // when photo liked to this...
+
+
+- (IBAction)onPictureTapped:(UITapGestureRecognizer *)sender
 {
+    CGPoint point = sender.view.center;
+    NSIndexPath *path =
+    [self animateLike];
 }
 
-- (IBAction)onCommentButtonTapped:(UIButton *)button // when comment button tapped do this...
+
+
+- (void)animateLike
 {
+    CustomTableViewCell *cell = [CustomTableViewCell new];
+    cell.heartImage.image = [UIImage imageNamed:@"hearts-50"];
+    [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        cell.heartImage.transform = CGAffineTransformMakeScale(1.3, 1.3);
+        cell.heartImage.alpha = 1.0;
+    }
+                     completion:^(BOOL finished) {
+                         [UIView animateWithDuration:0.1f delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+                             cell.heartImage.transform = CGAffineTransformMakeScale(1.0, 1.0);
+                         }
+                                          completion:^(BOOL finished) {
+                                              [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+                                                  cell.heartImage.transform = CGAffineTransformMakeScale(1.3, 1.3);
+                                                  cell.heartImage.alpha = 0.0;
+                                              }
+                                                               completion:^(BOOL finished) {
+                                                                   cell.heartImage.transform = CGAffineTransformMakeScale(1.0, 1.0);
+                                                               }];
+                                          }];
+                     }];
 }
+
+
 
 @end
