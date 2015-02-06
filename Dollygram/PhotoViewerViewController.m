@@ -19,6 +19,8 @@
 @property PFQuery *query;
 @property NSMutableArray *likesArray;
 @property NSArray *tempLikeArray;
+@property NSArray *photoUserArray;
+@property PFUser *searchedUser;
 
 @property NSInteger numberOfImagesToLoad; // numbers of photos displayed based on Parse count
 
@@ -43,7 +45,10 @@
 
     NSString *photoPosterId = [self.photosUser objectForKey:@"PhotoPoster"];
     PFQuery *query2 = [PFUser query];
-    [query2 whereKey:@"owner" equalTo:photoPosterId];
+    [query2 whereKey:@"objectId" equalTo:photoPosterId];
+    self.photoUserArray = [[NSArray alloc]init];
+    self.photoUserArray = [query2 findObjects];
+    self.searchedUser = self.photoUserArray.firstObject;
 
     self.numberOfImagesToLoad = 1;
 
@@ -252,6 +257,7 @@
 
         PFObject *following = [PFObject objectWithClassName:@"Following"];
         [following setValue:self.searchedUser.objectId forKey:@"FollowedUser"];
+        [following setValue:follow.objectId forKey:@"FollowObjectId"];
 
 
         [following saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
@@ -272,6 +278,7 @@
 
         PFObject *follower = [PFObject objectWithClassName:@"Follower"];
         [follower setValue:[PFUser currentUser] forKey:@"FollowingUser"];
+        [follower setValue:follow.objectId forKey:@"FollowObjectId"];
 
         [follower saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
          {

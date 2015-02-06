@@ -19,6 +19,9 @@
 @property PFQuery *query;
 @property PFQuery *query2;
 @property NSMutableArray *photosArray;
+@property (strong, nonatomic) IBOutlet UILabel *postsLabel;
+@property (strong, nonatomic) IBOutlet UILabel *followersLabel;
+@property (strong, nonatomic) IBOutlet UILabel *followingLabel;
 
 @end
 
@@ -62,7 +65,9 @@
          }];
         self.fullNameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
         self.navigationItem.title = [currentUser username];
-        
+
+        [self followNumbers];
+
         self.query = [PFQuery queryWithClassName:@"Photo"];
         //[self.query orderByDescending:@"createdAt"];
         [self.query whereKey:@"PhotoPoster" equalTo:currentUser.objectId];
@@ -70,6 +75,7 @@
 
         self.photosArray = [[[NSArray alloc]init]mutableCopy];
         self.photosArray = [[self.query findObjects]mutableCopy];
+        self.postsLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.photosArray.count];
         [self.collectionView reloadData];
     }
     else
@@ -172,6 +178,32 @@
     [picker dismissViewControllerAnimated:YES completion:NULL];
 
 //    [self performSegueWithIdentifier:@"ApprovalSegue" sender:self];
+
+}
+
+- (void)followNumbers
+{
+    PFObject *follow = [[PFUser currentUser] objectForKey:@"FollowObjectId"];
+
+
+    PFQuery *query2 = [PFQuery queryWithClassName:@"Following"];
+    NSArray *thisArray = [query2 findObjects];
+    if (thisArray.count != 0)
+    {
+        [query2 whereKey:@"FollowObjectId" equalTo:follow.objectId];
+        NSArray *tempArray2 = [query2 findObjects];
+        self.followingLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)tempArray2.count];
+    }
+
+    PFQuery *query = [PFQuery queryWithClassName:@"Follower"];
+    NSArray *thisOtherArray = [query findObjects];
+    if (thisOtherArray.count != 0)
+    {
+        [query whereKey:@"FollowObjectId" equalTo:follow.objectId];
+        NSArray *tempArray = [query findObjects];
+        self.followersLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)tempArray.count];
+    }
+
 
 }
 

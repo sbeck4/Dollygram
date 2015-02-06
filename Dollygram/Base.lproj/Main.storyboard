@@ -96,7 +96,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Gjh-R5-ngZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MhJ-My-yAC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="trs-ky-din">
@@ -150,7 +150,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ZAI-FO-aAk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vJj-QE-cr9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l5Y-Tf-mzz">
@@ -368,7 +368,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="dM2-vQ-IZN" id="hQH-f1-Sj4"/>
+                        <outlet property="followersLabel" destination="oyO-tn-HaD" id="20M-Fz-RkR"/>
+                        <outlet property="followingLabel" destination="R1g-50-oPN" id="N9g-e5-clw"/>
                         <outlet property="fullNameLabel" destination="KnO-8c-ofA" id="lzS-zl-pDn"/>
+                        <outlet property="postsLabel" destination="jbM-eL-UhT" id="cgI-Wp-eJd"/>
                         <outlet property="profileImage" destination="NVk-9M-akI" id="Fxv-JO-Qv1"/>
                         <segue destination="LQZ-IP-ISk" kind="modal" identifier="showLogin" id="zNV-gZ-hAs"/>
                         <segue destination="hmO-5l-auw" kind="modal" identifier="circleSegue" id="Fgs-zP-mGr"/>
@@ -1416,6 +1419,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Pcp-f9-FBS"/>
+        <segue reference="zNV-gZ-hAs"/>
     </inferredMetricsTieBreakers>
 </document>
