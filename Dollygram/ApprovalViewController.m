@@ -31,6 +31,7 @@
 {
     SharePhotoViewController *shareVC = segue.destinationViewController;
     shareVC.thumbnail = self.imageForApproval;
+    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)cancelImageButtonTapped:(id)sender

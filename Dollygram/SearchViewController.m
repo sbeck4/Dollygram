@@ -9,6 +9,7 @@
 #import "SearchViewController.h"
 #import "SearchCollectionViewCell.h"
 #import "SearchedUserViewController.h"
+#import "PhotoViewerViewController.h"
 #import <Parse/Parse.h>
 
 @interface SearchViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -23,6 +24,7 @@
 @property PFQuery *query;
 @property PFQuery *query2;
 @property PFUser *selectedUser;
+@property NSInteger photoIndexPath;
 
 
 
@@ -76,9 +78,10 @@
     return self.photosArray.count;
 }
 
-- (IBAction)onCollectionViewCellTapped:(UITapGestureRecognizer *)sender
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    self.photoIndexPath = indexPath.row;
+    [self performSegueWithIdentifier:@"photoViewSegue" sender:self];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -97,6 +100,9 @@
              cell.imageView.image  = [UIImage imageWithData:data];
          }
      }];
+
+    
+
 
     return cell;
 }
@@ -118,6 +124,11 @@
     {
         SearchedUserViewController *searchedVC = segue.destinationViewController;
         searchedVC.searchedUser = self.selectedUser;
+    }
+    else if ([segue.identifier isEqualToString:@"photoViewSegue"])
+    {
+        PhotoViewerViewController *photoVC = segue.destinationViewController;
+       photoVC.photosUser = self.photosArray[self.photoIndexPath];
     }
 }
 

@@ -59,34 +59,48 @@
     else
     {
         PFUser *newUser = [PFUser user];
+        PFObject *follow = [PFObject objectWithClassName:@"Follow"];
+
         [newUser setUsername:username];
         [newUser setPassword:password];
         [newUser setEmail:email];
         newUser[@"firstName"] = firstName;
         newUser[@"lastName"] = lastName;
 
+//        [follow setValue:[PFUser currentUser].objectId forKey:@"CurrentUserId"];
 
-        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
-         {
-             if (error)
-             {
-                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry!"
-                                                                     message:[error.userInfo objectForKey:@"error"]
-                                                                    delegate:Nil cancelButtonTitle:@"OK"
-                                                           otherButtonTitles:nil];
-                 [alertView show];
-             }
-             else
-             {
-                 self.usernameField.text = nil;
-                 self.emailField.text = nil;
-                 self.passwordField.text = nil;
-                 [self dismissViewControllerAnimated:NO completion:nil];
-             }
-             
-         }];
+        [follow saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+        {
+            [newUser setValue:follow.objectId forKey:@"FollowObjectId"];
+
+                [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+                 {
+                     if (error)
+                     {
+                         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry!"
+                                                                         message:[error.userInfo objectForKey:@"error"]
+                                                                        delegate:Nil cancelButtonTitle:@"OK"
+                                                               otherButtonTitles:nil];
+                         [alertView show];
+                     }
+                     else
+                     {
+                         [follow setValue:[PFUser currentUser].objectId forKey:@"CurrentUserId"];
+
+                         [follow saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+
+                         }];
+
+                         self.usernameField.text = nil;
+                         self.emailField.text = nil;
+                         self.passwordField.text = nil;
+                         [self dismissViewControllerAnimated:NO completion:nil];
+                     }
+             }];
+        }];
     }
 
+    
 }
 
 @end

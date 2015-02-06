@@ -79,6 +79,7 @@
     {
     ApprovalViewController *avc = segue.destinationViewController;
     avc.imageForApproval = self.imageView.image;
+    [self.tabBarController setSelectedIndex:2];
     }
 }
 

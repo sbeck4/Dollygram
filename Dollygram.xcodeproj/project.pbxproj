@@ -46,6 +46,10 @@
 		8336190F1A806B390040D815 /* SharePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8336190E1A806B390040D815 /* SharePhotoViewController.m */; };
 		838436C31A8184FD00D0AF7E /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 838436C21A8184FD00D0AF7E /* HomeFeedViewController.m */; };
 		838436C71A81A9E800D0AF7E /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 838436C61A81A9E800D0AF7E /* CustomTableViewCell.m */; };
+		839C0DAB1A8479F500C83E06 /* PhotoViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839C0DAA1A8479F500C83E06 /* PhotoViewerViewController.m */; };
+		839C0DB11A847BE100C83E06 /* PhotoViewerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 839C0DB01A847BE100C83E06 /* PhotoViewerTableViewCell.m */; };
+		83B244951A833841009BBBCD /* CommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B244921A833841009BBBCD /* CommentTableViewCell.m */; };
+		83B244961A833841009BBBCD /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B244941A833841009BBBCD /* CommentsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +122,14 @@
 		838436C21A8184FD00D0AF7E /* HomeFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeFeedViewController.m; sourceTree = "<group>"; };
 		838436C51A81A9E800D0AF7E /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		838436C61A81A9E800D0AF7E /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		839C0DA91A8479F500C83E06 /* PhotoViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewerViewController.h; sourceTree = "<group>"; };
+		839C0DAA1A8479F500C83E06 /* PhotoViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewerViewController.m; sourceTree = "<group>"; };
+		839C0DAF1A847BE100C83E06 /* PhotoViewerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoViewerTableViewCell.h; path = ../PhotoViewerTableViewCell.h; sourceTree = "<group>"; };
+		839C0DB01A847BE100C83E06 /* PhotoViewerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoViewerTableViewCell.m; path = ../PhotoViewerTableViewCell.m; sourceTree = "<group>"; };
+		83B244911A833841009BBBCD /* CommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableViewCell.h; sourceTree = "<group>"; };
+		83B244921A833841009BBBCD /* CommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableViewCell.m; sourceTree = "<group>"; };
+		83B244931A833841009BBBCD /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
+		83B244941A833841009BBBCD /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +168,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		830B53831A843F1400AF054B /* Home Feed */ = {
+			isa = PBXGroup;
+			children = (
+				838436C11A8184FD00D0AF7E /* HomeFeedViewController.h */,
+				838436C21A8184FD00D0AF7E /* HomeFeedViewController.m */,
+			);
+			name = "Home Feed";
+			sourceTree = "<group>";
+		};
 		8336189E1A80324B0040D815 = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				838436C41A81A9CA00D0AF7E /* Model */,
+				830B53831A843F1400AF054B /* Home Feed */,
+				83BA4F631A8482EA005DF7AB /* Search View Controller */,
 				833618AE1A80324B0040D815 /* AppDelegate.h */,
 				833618AF1A80324B0040D815 /* AppDelegate.m */,
 				833618B41A80324B0040D815 /* Main.storyboard */,
@@ -185,12 +208,14 @@
 				8328185F1A81E94A0073ED69 /* ProfileCollectionViewCell.m */,
 				832818941A82DE1B0073ED69 /* SearchedUserViewController.h */,
 				832818951A82DE1B0073ED69 /* SearchedUserViewController.m */,
+				83B244931A833841009BBBCD /* CommentsViewController.h */,
+				83B244941A833841009BBBCD /* CommentsViewController.m */,
 				8332C5A31A81D19700DFF26C /* CircleViewController.h */,
 				8332C5A41A81D19700DFF26C /* CircleViewController.m */,
 				8336190D1A806B390040D815 /* SharePhotoViewController.h */,
 				8336190E1A806B390040D815 /* SharePhotoViewController.m */,
-				8332C5A61A81DA4300DFF26C /* SearchViewController.h */,
-				8332C5A71A81DA4300DFF26C /* SearchViewController.m */,
+				839C0DA91A8479F500C83E06 /* PhotoViewerViewController.h */,
+				839C0DAA1A8479F500C83E06 /* PhotoViewerViewController.m */,
 				833618E61A8039900040D815 /* SettingsViewController.h */,
 				833618E71A8039900040D815 /* SettingsViewController.m */,
 				833619071A8062C30040D815 /* PictureViewController.h */,
@@ -199,8 +224,6 @@
 				8336190A1A8062C30040D815 /* ApprovalViewController.m */,
 				833618D21A8037140040D815 /* LoginViewController.h */,
 				833618D31A8037140040D815 /* LoginViewController.m */,
-				838436C11A8184FD00D0AF7E /* HomeFeedViewController.h */,
-				838436C21A8184FD00D0AF7E /* HomeFeedViewController.m */,
 				833618D51A80371E0040D815 /* SignUpViewController.h */,
 				833618D61A80371E0040D815 /* SignUpViewController.m */,
 				833618D81A80372B0040D815 /* ProfileViewController.h */,
@@ -267,14 +290,27 @@
 		838436C41A81A9CA00D0AF7E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				839C0DAF1A847BE100C83E06 /* PhotoViewerTableViewCell.h */,
+				839C0DB01A847BE100C83E06 /* PhotoViewerTableViewCell.m */,
 				838436C51A81A9E800D0AF7E /* CustomTableViewCell.h */,
 				838436C61A81A9E800D0AF7E /* CustomTableViewCell.m */,
 				832818971A82DEC70073ED69 /* SearchedUserCollectionViewCell.h */,
 				832818981A82DEC70073ED69 /* SearchedUserCollectionViewCell.m */,
 				8328185B1A81DE540073ED69 /* SearchCollectionViewCell.h */,
 				8328185C1A81DE540073ED69 /* SearchCollectionViewCell.m */,
+				83B244911A833841009BBBCD /* CommentTableViewCell.h */,
+				83B244921A833841009BBBCD /* CommentTableViewCell.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		83BA4F631A8482EA005DF7AB /* Search View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8332C5A61A81DA4300DFF26C /* SearchViewController.h */,
+				8332C5A71A81DA4300DFF26C /* SearchViewController.m */,
+			);
+			name = "Search View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,7 +414,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				833618D41A8037140040D815 /* LoginViewController.m in Sources */,
+				839C0DAB1A8479F500C83E06 /* PhotoViewerViewController.m in Sources */,
+				83B244951A833841009BBBCD /* CommentTableViewCell.m in Sources */,
 				8332C5A81A81DA4300DFF26C /* SearchViewController.m in Sources */,
+				83B244961A833841009BBBCD /* CommentsViewController.m in Sources */,
 				8336190F1A806B390040D815 /* SharePhotoViewController.m in Sources */,
 				838436C71A81A9E800D0AF7E /* CustomTableViewCell.m in Sources */,
 				832818961A82DE1B0073ED69 /* SearchedUserViewController.m in Sources */,
@@ -389,6 +428,7 @@
 				832818991A82DEC70073ED69 /* SearchedUserCollectionViewCell.m in Sources */,
 				8336190B1A8062C30040D815 /* PictureViewController.m in Sources */,
 				833618DA1A80372B0040D815 /* ProfileViewController.m in Sources */,
+				839C0DB11A847BE100C83E06 /* PhotoViewerTableViewCell.m in Sources */,
 				832818601A81E94A0073ED69 /* ProfileCollectionViewCell.m in Sources */,
 				8332C5A51A81D19700DFF26C /* CircleViewController.m in Sources */,
 				833618AD1A80324B0040D815 /* main.m in Sources */,

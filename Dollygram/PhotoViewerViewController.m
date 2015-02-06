@@ -1,22 +1,20 @@
 //
-//  ViewController.m
-//  InstagramFeed
+//  PhotoViewerViewController.m
+//  Dollygram
 //
-//  Created by Gabriel Borri de Azevedo on 2/2/15.
-//  Copyright (c) 2015 Gabriel Enterprises. All rights reserved.
+//  Created by Shannon Beck on 2/5/15.
+//  Copyright (c) 2015 Shannon Beck. All rights reserved.
 //
 
-#import "HomeFeedViewController.h"
-#import "CustomTableViewCell.h"
-#import "CommentsViewController.h"
-#import "CommentTableViewCell.h"
+#import "PhotoViewerViewController.h"
+#import "PhotoViewerTableViewCell.h"
 #import <Parse/Parse.h>
 
-@interface HomeFeedViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
+@interface PhotoViewerViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property PFObject *photo;
-@property NSArray *photosArray;
+@property NSMutableArray *photosArray;
 @property PFFile *photoFile;
 @property PFQuery *query;
 @property NSMutableArray *likesArray;
@@ -26,7 +24,7 @@
 
 @end
 
-@implementation HomeFeedViewController
+@implementation PhotoViewerViewController
 
 - (void)viewDidLoad
 {
@@ -40,41 +38,49 @@
     [self.query orderByDescending:@"createdAt"];
     //[query whereKey:@"owner" equalTo:currentUser];
 
-    self.photosArray = [[NSArray alloc]init];
-    self.photosArray = [self.query findObjects];
-    self.numberOfImagesToLoad = 10;
+    self.photosArray = [[NSMutableArray alloc]init];
+    [self.photosArray addObject:self.photosUser];
+
+    NSString *photoPosterId = [self.photosUser objectForKey:@"PhotoPoster"];
+    PFQuery *query2 = [PFUser query];
+    [query2 whereKey:@"owner" equalTo:photoPosterId];
+
+    self.numberOfImagesToLoad = 1;
+
     [self.tableView reloadData];
+
+
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Create a cell with the properties set below.
-    CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    PhotoViewerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
 
-        PFObject *photo = self.photosArray[indexPath.section];
+    PFObject *photo = self.photosArray[indexPath.section];
 
-        NSString *activityId = [photo objectForKey:@"PhotoActivityId"];
+    NSString *activityId = [photo objectForKey:@"PhotoActivityId"];
 
-        PFQuery *query = [PFQuery queryWithClassName:@"Like"];
-        [query whereKey:@"ActivityId" equalTo:activityId];
-
-
-        self.likesArray = [[query findObjects]mutableCopy];
+    PFQuery *query = [PFQuery queryWithClassName:@"Like"];
+    [query whereKey:@"ActivityId" equalTo:activityId];
 
 
-        PFFile *file = [photo objectForKey:@"PhotoZ"];
-        [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+    self.likesArray = [[query findObjects]mutableCopy];
+
+
+    PFFile *file = [photo objectForKey:@"PhotoZ"];
+    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+     {
+         if (!error)
          {
-             if (!error)
-             {
-                 cell.photoImageView.image = [UIImage imageWithData:data];
-                 //[self animateLike];
-                //cell.heartImage.image = [UIImage imageNamed:@"hearts-50"];
-                 //cell.photoImageView.backgroundColor = [UIColor grayColor];
-             }
-         }];
+             cell.photoImageView.image = [UIImage imageWithData:data];
+             //[self animateLike];
+             //cell.heartImage.image = [UIImage imageNamed:@"hearts-50"];
+             //cell.photoImageView.backgroundColor = [UIColor grayColor];
+         }
+     }];
 
-   // PFQuery *query2 = [PFQuery queryWithClassName:@"Like"];
+    // PFQuery *query2 = [PFQuery queryWithClassName:@"Like"];
     [query whereKey:@"LikingUserId" equalTo:[PFUser currentUser].objectId];
     self.tempLikeArray = [query findObjects];
 
@@ -100,8 +106,8 @@
 {
     if (self.tempLikeArray.count == 0)
     {
-    [self animateHeartUsingSection:gesture.view.tag]; //the photo was double tapped, call animation
-    NSLog(@"like button at section %li tapped", gesture.view.tag);
+        [self animateHeartUsingSection:gesture.view.tag]; //the photo was double tapped, call animation
+        NSLog(@"like button at section %li tapped", gesture.view.tag);
     }
 }
 
@@ -128,7 +134,7 @@
      }];
 
     NSIndexPath *indexPath2 = [NSIndexPath indexPathForRow:0 inSection:section];
-    CustomTableViewCell *cell = (CustomTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath2];
+    PhotoViewerTableViewCell *cell = (PhotoViewerTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath2];
     cell.heartImage.image = [UIImage imageNamed:@"hearts-50"];
     [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         cell.heartImage.transform = CGAffineTransformMakeScale(1.3, 1.3);
@@ -148,7 +154,7 @@
                                                                }];
                                           }];
                      }];
-    
+
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -188,7 +194,7 @@
     usernameButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
 
     NSString *photoPoster = [self.photosArray[section] objectForKey:@"PhotoPoster"];
-//    PFQuery *query2 = [PFQuery queryWithClassName:@"User"];//depricated
+    //    PFQuery *query2 = [PFQuery queryWithClassName:@"User"];//depricated
     PFQuery *query2 = [PFUser query];
     [query2 whereKey:@"objectId" equalTo:photoPoster];
     [query2 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -196,6 +202,29 @@
         PFUser *photoUser = [objects firstObject];
         [usernameButton setTitle:photoUser.username forState:UIControlStateNormal];
     }];
+
+    UIButton *followButton = [UIButton buttonWithType:UIButtonTypeCustom]; // PLUS
+
+    [followButton addTarget:self action:@selector(onFollowButtonTapped:)forControlEvents:UIControlEventTouchUpInside];  // PLUS
+
+
+
+    followButton.frame = CGRectMake(290.0, 8.0, 80.0, 30.0); //PLUS
+
+    [followButton setTitle:@"+ Follow" forState:UIControlStateNormal];
+
+    [followButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+
+    followButton.backgroundColor = [UIColor clearColor];
+
+    [[followButton layer] setBorderWidth:1.0f];
+
+    followButton.titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:13.0];
+
+    [[followButton layer] setBorderColor:[UIColor blueColor].CGColor];
+
+    followButton.tag = section; // PLUS
+
 
     headerViewImage.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed: @"profile.png"]];
 
@@ -207,9 +236,53 @@
     [headerView addSubview:headerViewImage];
     [headerView addSubview:usernameButton];
     [headerView addSubview:headerSeparator];
+    [headerView addSubview:followButton];
 
     // return the main view to display in the header
     return headerView;
+}
+
+- (void)onFollowButtonTapped:(UIButton *)button // when comment button tapped do this...
+
+{
+        PFQuery *query = [PFQuery queryWithClassName:@"Follow"];
+        [query whereKey:@"CurrentUserId" equalTo:[PFUser currentUser].objectId];
+        NSArray *tempArray = [query findObjects];
+        PFObject *follow = tempArray.firstObject;
+
+        PFObject *following = [PFObject objectWithClassName:@"Following"];
+        [following setValue:self.searchedUser.objectId forKey:@"FollowedUser"];
+
+
+        [following saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+         {
+             [follow setObject:following forKey:@"Following"];
+
+             [follow saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+              {
+
+              }];
+
+         }];
+
+        PFQuery *query2 = [PFQuery queryWithClassName:@"Follow"];
+        [query2 whereKey:@"CurrentUserId" equalTo:self.searchedUser.objectId];
+        NSArray *tempArray2 = [query2 findObjects];
+        PFObject *follow2 = tempArray2.firstObject;
+
+        PFObject *follower = [PFObject objectWithClassName:@"Follower"];
+        [follower setValue:[PFUser currentUser] forKey:@"FollowingUser"];
+
+        [follower saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+         {
+             [follow2 setObject:follower forKey:@"Follower"];
+             
+             [follow2 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+              {
+                  
+              }];
+             
+         }];
 }
 
 - (IBAction)onHeaderUsernameTapped:(UIButton *)button // when photo liked to this...
@@ -228,14 +301,6 @@
     NSLog(@"%ld",(long)button.tag);
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton *)sender
-{
-    CommentsViewController *comVC = segue.destinationViewController;
-    comVC.title = [NSString stringWithFormat:@"Row selected : %li", (long)sender.tag];
-   // NSInteger number = sender.tag;
-    comVC.photo = self.photosArray[sender.tag];
-}
-
 //- (IBAction)onPictureTapped:(UITapGestureRecognizer *)sender
 //{
 //    CGPoint point = [sender locationInView:self.view];
@@ -247,7 +312,7 @@
 //}
 
 
- 
+
 - (void)animateLike:(UIButton *)button
 {
     PFObject *photo = self.photosArray[button.tag];
@@ -263,30 +328,30 @@
          [self.likesArray addObject:like];
          [self.tableView reloadData];
      }];
-    
+
 
 
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:button.tag];
-    CustomTableViewCell *cell = (CustomTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-        cell.heartImage.image = [UIImage imageNamed:@"hearts-50"];
-        [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-            cell.heartImage.transform = CGAffineTransformMakeScale(1.3, 1.3);
-            cell.heartImage.alpha = 1.0;
-        }
-                         completion:^(BOOL finished) {
-                             [UIView animateWithDuration:0.1f delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-                                 cell.heartImage.transform = CGAffineTransformMakeScale(1.0, 1.0);
-                             }
-                                              completion:^(BOOL finished) {
-                                                  [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-                                                      cell.heartImage.transform = CGAffineTransformMakeScale(1.3, 1.3);
-                                                      cell.heartImage.alpha = 0.0;
-                                                  }
-                                                                   completion:^(BOOL finished) {
-                                                                       cell.heartImage.transform = CGAffineTransformMakeScale(1.0, 1.0);
-                                                                   }];
-                                              }];
-                         }];
+    PhotoViewerTableViewCell *cell = (PhotoViewerTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    cell.heartImage.image = [UIImage imageNamed:@"hearts-50"];
+    [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        cell.heartImage.transform = CGAffineTransformMakeScale(1.3, 1.3);
+        cell.heartImage.alpha = 1.0;
+    }
+                     completion:^(BOOL finished) {
+                         [UIView animateWithDuration:0.1f delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+                             cell.heartImage.transform = CGAffineTransformMakeScale(1.0, 1.0);
+                         }
+                                          completion:^(BOOL finished) {
+                                              [UIView animateWithDuration:0.3f delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+                                                  cell.heartImage.transform = CGAffineTransformMakeScale(1.3, 1.3);
+                                                  cell.heartImage.alpha = 0.0;
+                                              }
+                                                               completion:^(BOOL finished) {
+                                                                   cell.heartImage.transform = CGAffineTransformMakeScale(1.0, 1.0);
+                                                               }];
+                                          }];
+                     }];
 
 }
 
@@ -294,3 +359,4 @@
 
 
 @end
+

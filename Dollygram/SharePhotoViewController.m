@@ -44,6 +44,7 @@ shouldChangeTextInRange:(NSRange)range
 - (IBAction)shareImageButtonTapped:(id)sender
 {
     PFObject *photo = [PFObject objectWithClassName:@"Photo"];
+    PFObject *activity = [PFObject objectWithClassName:@"Activity"];
 
     NSData *imageData = UIImageJPEGRepresentation(self.thumbnailImage.image, 0.8f);
     self.photoFile = [PFFile fileWithData:imageData];
@@ -52,10 +53,20 @@ shouldChangeTextInRange:(NSRange)range
     [photo setObject:[PFUser currentUser].objectId forKey:@"PhotoPoster"];
     [photo setObject:self.commentsTextField.text forKey:@"PhotoDescription"];
 
-    [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
-    {
-        //Hope it works?
-    }];
+    [activity saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+     {
+         [photo setObject:activity.objectId forKey:@"PhotoActivityId"];
+
+         [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+          {
+              [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+
+          }];
+
+     }];
+
+   // [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 
