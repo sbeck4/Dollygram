@@ -19,6 +19,7 @@
 @property PFQuery *query;
 @property PFQuery *query2;
 @property NSMutableArray *photosArray;
+@property (strong, nonatomic) IBOutlet UIImageView *profileImageCropper;
 
 @end
 
@@ -41,6 +42,8 @@
              if (!error)
              {
                  self.profileImage.image = [UIImage imageWithData:data];
+                 self.profileImageCropper.image = [UIImage imageNamed:@"ProfileImageCircle"];
+
              }
          }];
         self.fullNameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];

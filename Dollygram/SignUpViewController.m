@@ -94,13 +94,25 @@
                          self.usernameField.text = nil;
                          self.emailField.text = nil;
                          self.passwordField.text = nil;
-                         [self dismissViewControllerAnimated:NO completion:nil];
+                         //[self dismissViewControllerAnimated:NO completion:nil];
+                         [self.presentingViewController.presentingViewController.presentingViewController  dismissViewControllerAnimated:YES completion:nil];
+
                      }
              }];
         }];
     }
+}
 
-    
+- (IBAction)backButtonTapped:(id)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

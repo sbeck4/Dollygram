@@ -21,6 +21,8 @@
 @property PFQuery *query;
 @property NSMutableArray *likesArray;
 @property NSArray *tempLikeArray;
+@property NSData *profileImageData;
+@property PFFile *profileImage;
 
 @property NSInteger numberOfImagesToLoad; // numbers of photos displayed based on Parse count
 
@@ -73,6 +75,33 @@
                  //cell.photoImageView.backgroundColor = [UIColor grayColor];
              }
          }];
+
+//    NSString *photoPoster = [photo objectForKey:@"PhotoPoster"];
+//    PFQuery *query3 = [PFUser query];
+//    [query3 whereKey:@"objectId" equalTo:photoPoster];
+//    NSArray *tempArray = [query3 findObjects];
+//    PFUser *photoUser = tempArray.firstObject;
+//
+//    PFFile *profileImage = [photoUser objectForKey:@"profileImage"];
+//    if (profileImage != nil)
+//    {
+//        [profileImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+//         {
+//             if (!error)
+//             {
+//                 self.profileImageData = data;
+//                 //cell.photoImageView.image = [UIImage imageWithData:data];
+//                 //[self animateLike];
+//                 //cell.heartImage.image = [UIImage imageNamed:@"hearts-50"];
+//                 //cell.photoImageView.backgroundColor = [UIColor grayColor];
+//             }
+//         }];
+//    }
+//    else
+//    {
+//        self.profileImageData = nil;
+//    }
+
 
    // PFQuery *query2 = [PFQuery queryWithClassName:@"Like"];
     [query whereKey:@"LikingUserId" equalTo:[PFUser currentUser].objectId];
@@ -171,11 +200,23 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     // Here we're going to create a custom view in the header to display some information
+//    PFObject *photo = self.photosArray[section];
+//    NSString *photoPoster = [photo objectForKey:@"PhotoPoster"];
+//    PFQuery *query3 = [PFUser query];
+//    [query3 whereKey:@"objectId" equalTo:photoPoster];
+//    NSArray *tempArray = [query3 findObjects];
+//    PFUser *photoUser = tempArray.firstObject;
+
+   // PFFile *profileImage = [photoUser objectForKey:@"profileImage"];
+
+
 
     // We'll have a view the size of the header to contain all others subviews
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 50.0)];
     //View to display the user profile photo
-    UIView *headerViewImage = [[UIView alloc] initWithFrame:CGRectMake(5.0, 5.0, 40.0, 40.0)];
+    UIImageView *headerViewImage = [[UIImageView alloc] initWithFrame:CGRectMake(5.0, 5.0, 40.0, 40.0)];
+    UIImageView *headerViewImage2 = [[UIImageView alloc] initWithFrame:CGRectMake(5.0, 5.0, 40.0, 40.0)];
+
     //View (button) that contains the username
     UIButton *usernameButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     usernameButton.tag = section;
@@ -195,21 +236,75 @@
         NSLog(@"objects returned: %@", objects);
         PFUser *photoUser = [objects firstObject];
         [usernameButton setTitle:photoUser.username forState:UIControlStateNormal];
+        self.profileImage = [photoUser objectForKey:@"profileImage"];
+        [self.profileImage getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+         {
+             if (!error)
+             {
+                 self.profileImageData = data;
+                 //cell.photoImageView.image = [UIImage imageWithData:data];
+                 //[self animateLike];
+                 //cell.heartImage.image = [UIImage imageNamed:@"hearts-50"];
+                 //cell.photoImageView.backgroundColor = [UIColor grayColor];
+
+                 headerViewImage.image = [UIImage imageWithData:self.profileImageData];
+                 headerViewImage2.image = [UIImage imageNamed:@"round_border"];
+
+                 headerView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.95]; // header transparency (translucent)
+
+                 headerSeparator.backgroundColor = [UIColor grayColor]; // separator color
+
+                 // adding subview to main view
+                 [headerView addSubview:headerViewImage];
+                 [headerView addSubview:headerViewImage2];
+
+             }
+         }];
+
     }];
 
-    headerViewImage.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed: @"profile.png"]];
+    UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(250.0, 10.0, 50.0, 25.0)];
 
-    headerView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.95]; // header transparency (translucent)
+    PFObject *photo = self.photosArray[section];
+    NSDate *updatedAt = photo.updatedAt;
 
-    headerSeparator.backgroundColor = [UIColor grayColor]; // separator color
+    timeLabel.text = [self dateDiff:updatedAt];
+    timeLabel.textAlignment = NSTextAlignmentCenter;
 
-    // adding subview to main view
-    [headerView addSubview:headerViewImage];
     [headerView addSubview:usernameButton];
     [headerView addSubview:headerSeparator];
+    [headerView addSubview:timeLabel];
 
-    // return the main view to display in the header
+    //headerViewImage.image = [UIImage imageWithData: self.profileImageData];
+
+        // return the main view to display in the header
     return headerView;
+}
+
+-(NSString *)dateDiff:(NSDate *)origDate
+{
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setFormatterBehavior:NSDateFormatterBehaviorDefault];
+    [df setDateFormat:@"yyyy-mm-dd HH:mm:ss VVVV"];
+    NSDate *todayDate = [NSDate date];
+    double ti = [origDate timeIntervalSinceDate:todayDate];
+    ti = ti * -1;
+    if(ti < 1) {
+        return @"never";
+    } else if (ti < 60) {
+        return @"< 1m";
+    } else if (ti < 3600) {
+        int diff = round(ti / 60);
+        return [NSString stringWithFormat:@"%d m", diff];
+    } else if (ti < 86400) {
+        int diff = round(ti / 60 / 60);
+        return[NSString stringWithFormat:@"%d h", diff];
+    } else if (ti < 2629743) {
+        int diff = round(ti / 60 / 60 / 24);
+        return[NSString stringWithFormat:@"%d d", diff];
+    } else {
+        return @"...";
+    }
 }
 
 - (IBAction)onHeaderUsernameTapped:(UIButton *)button // when photo liked to this...
@@ -235,16 +330,6 @@
    // NSInteger number = sender.tag;
     comVC.photo = self.photosArray[sender.tag];
 }
-
-//- (IBAction)onPictureTapped:(UITapGestureRecognizer *)sender
-//{
-//    CGPoint point = [sender locationInView:self.view];
-//    NSIndexPath *path = [self.tableView indexPathForRowAtPoint:point];
-//    NSIndexPath *path2 = [NSIndexPath indexPathForRow:0 inSection:path.section];
-//    UITableViewCell *pCell = [self.tableView cellForRowAtIndexPath:path2];
-//    CustomTableViewCell *cell = (CustomTableViewCell *)pCell;
-//    [self animateLike:cell];
-//}
 
 
  

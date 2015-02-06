@@ -22,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *postsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *followersLabel;
 @property (strong, nonatomic) IBOutlet UILabel *followingLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *profileImageCropper;
 
 @end
 
@@ -61,6 +62,7 @@
              if (!error)
              {
                  self.profileImage.image = [UIImage imageWithData:data];
+                 self.profileImageCropper.image = [UIImage imageNamed:@"ProfileImageCircle"];
              }
          }];
         self.fullNameLabel.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
@@ -183,7 +185,11 @@
 
 - (void)followNumbers
 {
-    PFObject *follow = [[PFUser currentUser] objectForKey:@"FollowObjectId"];
+    NSString *followId = [[PFUser currentUser] objectForKey:@"FollowObjectId"];
+    PFQuery *followZ = [PFQuery queryWithClassName:@"Follow"];
+    [followZ whereKey:@"objectId" equalTo:followId];
+    NSArray *thisArrayForNow = [followZ findObjects];
+    PFObject *follow = thisArrayForNow.firstObject;
 
 
     PFQuery *query2 = [PFQuery queryWithClassName:@"Following"];

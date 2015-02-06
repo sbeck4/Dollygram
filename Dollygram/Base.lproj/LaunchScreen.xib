@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6214" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6207"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,31 +10,77 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Copyright (c) 2015 Shannon Beck. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
-                    <rect key="frame" x="20" y="439" width="441" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_background" translatesAutoresizingMaskIntoConstraints="NO" id="M9b-xR-BDx">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dollygram" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Cd-Xo-2cn">
+                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="74" id="mxk-CI-wfi"/>
+                        <constraint firstAttribute="width" constant="182" id="tBd-Cm-u7j"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SavoyeLetPlain" family="Savoye LET" pointSize="54"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dollygram" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="20" y="140" width="441" height="43"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="mxk-CI-wfi"/>
+                            <exclude reference="tBd-Cm-u7j"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="mxk-CI-wfi"/>
+                            <include reference="tBd-Cm-u7j"/>
+                        </mask>
+                    </variation>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="1" id="5cJ-9S-tgC"/>
-                <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
+                <constraint firstItem="M9b-xR-BDx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="16b-IS-jZS"/>
+                <constraint firstAttribute="centerX" secondItem="5Cd-Xo-2cn" secondAttribute="centerX" id="Jkq-Zc-hpO"/>
+                <constraint firstAttribute="centerY" secondItem="5Cd-Xo-2cn" secondAttribute="centerY" id="OMJ-Kr-czK">
+                    <variation key="widthClass=compact" constant="-83"/>
+                </constraint>
+                <constraint firstAttribute="trailing" secondItem="M9b-xR-BDx" secondAttribute="trailing" id="VtU-E3-tBR"/>
+                <constraint firstAttribute="bottom" secondItem="M9b-xR-BDx" secondAttribute="bottom" id="aHk-KF-gey"/>
+                <constraint firstItem="M9b-xR-BDx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pEd-yI-3be"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="M9b-xR-BDx"/>
+                    <exclude reference="5Cd-Xo-2cn"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="16b-IS-jZS"/>
+                    <exclude reference="VtU-E3-tBR"/>
+                    <exclude reference="aHk-KF-gey"/>
+                    <exclude reference="pEd-yI-3be"/>
+                    <exclude reference="Jkq-Zc-hpO"/>
+                    <exclude reference="OMJ-Kr-czK"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="subviews">
+                    <include reference="M9b-xR-BDx"/>
+                    <include reference="5Cd-Xo-2cn"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="16b-IS-jZS"/>
+                    <include reference="VtU-E3-tBR"/>
+                    <include reference="aHk-KF-gey"/>
+                    <include reference="pEd-yI-3be"/>
+                    <include reference="Jkq-Zc-hpO"/>
+                    <include reference="OMJ-Kr-czK"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="login_background" width="640" height="1136"/>
+    </resources>
 </document>

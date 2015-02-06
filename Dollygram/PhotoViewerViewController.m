@@ -33,6 +33,8 @@
     [super viewDidLoad];
 }
 
+
+
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
@@ -271,10 +273,6 @@
 
          }];
 
-        PFQuery *query2 = [PFQuery queryWithClassName:@"Follow"];
-        [query2 whereKey:@"CurrentUserId" equalTo:self.searchedUser.objectId];
-        NSArray *tempArray2 = [query2 findObjects];
-        PFObject *follow2 = tempArray2.firstObject;
 
         PFObject *follower = [PFObject objectWithClassName:@"Follower"];
         [follower setValue:[PFUser currentUser] forKey:@"FollowingUser"];
@@ -282,9 +280,9 @@
 
         [follower saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
          {
-             [follow2 setObject:follower forKey:@"Follower"];
+             [follow setObject:follower forKey:@"Follower"];
              
-             [follow2 saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+             [follow saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
               {
                   
               }];
@@ -362,7 +360,10 @@
 
 }
 
-
+- (IBAction)backButton:(id)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 @end

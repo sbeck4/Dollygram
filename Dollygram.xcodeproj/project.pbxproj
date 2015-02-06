@@ -204,8 +204,6 @@
 				833618AE1A80324B0040D815 /* AppDelegate.h */,
 				833618AF1A80324B0040D815 /* AppDelegate.m */,
 				833618B41A80324B0040D815 /* Main.storyboard */,
-				8328185E1A81E94A0073ED69 /* ProfileCollectionViewCell.h */,
-				8328185F1A81E94A0073ED69 /* ProfileCollectionViewCell.m */,
 				832818941A82DE1B0073ED69 /* SearchedUserViewController.h */,
 				832818951A82DE1B0073ED69 /* SearchedUserViewController.m */,
 				83B244931A833841009BBBCD /* CommentsViewController.h */,
@@ -300,6 +298,8 @@
 				8328185C1A81DE540073ED69 /* SearchCollectionViewCell.m */,
 				83B244911A833841009BBBCD /* CommentTableViewCell.h */,
 				83B244921A833841009BBBCD /* CommentTableViewCell.m */,
+				8328185E1A81E94A0073ED69 /* ProfileCollectionViewCell.h */,
+				8328185F1A81E94A0073ED69 /* ProfileCollectionViewCell.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";

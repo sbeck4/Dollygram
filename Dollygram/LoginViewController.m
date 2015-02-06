@@ -29,6 +29,19 @@
     [super didReceiveMemoryWarning];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+
+    return YES;
+}
+
+- (IBAction)signUpButtonTapped:(id)sender
+{
+    [self performSegueWithIdentifier:@"signUp" sender:self];
+
+}
+
 - (IBAction)loginButtonTapped:(id)sender
 {
     NSString *username = [self.usernameField.text
@@ -60,8 +73,11 @@
             }
         }];
     }
-    
+}
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //[self.tabBarController setSelectedIndex:0];
 }
 
 @end

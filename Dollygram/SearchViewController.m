@@ -35,7 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //PFUser *currentUser = [PFUser currentUser];
+
     self.query = [PFQuery queryWithClassName:@"Photo"];
     [self.query orderByDescending:@"createdAt"];
     //[query whereKey:@"owner" equalTo:currentUser];
@@ -54,6 +54,23 @@
         [self.view layoutIfNeeded];
     }];
 
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+
+    //PFUser *currentUser = [PFUser currentUser];
+    self.query = [PFQuery queryWithClassName:@"Photo"];
+    [self.query orderByDescending:@"createdAt"];
+    //[query whereKey:@"owner" equalTo:currentUser];
+
+    self.photosArray = [[NSArray alloc]init];
+    self.photosArray = [self.query findObjects];
+
+    self.query2 = [PFUser query];
+    self.usersArray = [[NSArray alloc]init];
+    self.usersArray = [self.query2 findObjects];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -93,10 +110,24 @@
 
     PFFile *file;
     file = [user objectForKey:@"profileImage"];
+
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+//
+//        // Rounded Rect for cell image
+//        CALayer *cellImageLayer = cell.imageView.layer;
+//        [cellImageLayer setCornerRadius:9];
+//        [cellImageLayer setMasksToBounds:YES];
+//    }
+
     [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
      {
          if (!error)
          {
+             CALayer *cellImageLayer = cell.imageView.layer;
+             [cellImageLayer setCornerRadius:22];
+             [cellImageLayer setMasksToBounds:YES];
+            //cell.imageView.layer.cornerRadius = cell.imageView.frame.size.width / 2.0;
              cell.imageView.image  = [UIImage imageWithData:data];
          }
      }];
