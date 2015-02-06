@@ -482,9 +482,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="wil-sc-f3b" kind="relationship" relationship="viewControllers" id="znQ-lc-Skd"/>
                         <segue destination="Qbz-GQ-iP9" kind="relationship" relationship="viewControllers" id="hxn-Kq-Nm0"/>
                         <segue destination="jPl-If-4Me" kind="relationship" relationship="viewControllers" id="lHj-hV-hta"/>
-                        <segue destination="wil-sc-f3b" kind="relationship" relationship="viewControllers" id="znQ-lc-Skd"/>
                         <segue destination="PnG-Oz-How" kind="relationship" relationship="viewControllers" id="e56-Uu-YoT"/>
                     </connections>
                 </tabBarController>
@@ -1313,7 +1313,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="0UL-bg-qMO" id="EIS-fs-6CF"/>
+                        <outlet property="followersLabel" destination="9WR-Mx-MQb" id="TOe-Ur-2th"/>
+                        <outlet property="followingLabel" destination="r1l-sS-c5z" id="cXE-UW-pa7"/>
                         <outlet property="fullNameLabel" destination="a3u-DN-kXH" id="IPg-Dj-tSN"/>
+                        <outlet property="postsLabel" destination="qPY-ou-Jkl" id="q9v-ev-4zQ"/>
                         <outlet property="profileImage" destination="YrO-Rh-7nc" id="0vO-vD-jWm"/>
                         <outlet property="profileImageCropper" destination="2q6-vt-KYN" id="6pm-3I-e2Q"/>
                     </connections>

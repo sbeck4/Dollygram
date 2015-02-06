@@ -59,6 +59,13 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
+    [self.peopleTableView reloadData];
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
 
     //PFUser *currentUser = [PFUser currentUser];
     self.query = [PFQuery queryWithClassName:@"Photo"];
@@ -71,6 +78,8 @@
     self.query2 = [PFUser query];
     self.usersArray = [[NSArray alloc]init];
     self.usersArray = [self.query2 findObjects];
+
+
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -111,14 +120,6 @@
     PFFile *file;
     file = [user objectForKey:@"profileImage"];
 
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
-//
-//        // Rounded Rect for cell image
-//        CALayer *cellImageLayer = cell.imageView.layer;
-//        [cellImageLayer setCornerRadius:9];
-//        [cellImageLayer setMasksToBounds:YES];
-//    }
 
     [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
      {

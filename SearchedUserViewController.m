@@ -20,6 +20,9 @@
 @property PFQuery *query2;
 @property NSMutableArray *photosArray;
 @property (strong, nonatomic) IBOutlet UIImageView *profileImageCropper;
+@property (strong, nonatomic) IBOutlet UILabel *postsLabel;
+@property (strong, nonatomic) IBOutlet UILabel *followersLabel;
+@property (strong, nonatomic) IBOutlet UILabel *followingLabel;
 
 @end
 
@@ -56,6 +59,10 @@
 
         self.photosArray = [[[NSArray alloc]init]mutableCopy];
         self.photosArray = [[self.query findObjects]mutableCopy];
+        self.postsLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.photosArray.count];
+        [self followNumbers];
+
+
         [self.collectionView reloadData];
 
 }
@@ -97,6 +104,36 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+- (void)followNumbers
+{
+    NSString *followId = [self.searchedUser objectForKey:@"FollowObjectId"];
+    PFQuery *followZ = [PFQuery queryWithClassName:@"Follow"];
+    [followZ whereKey:@"objectId" equalTo:followId];
+    NSArray *thisArrayForNow = [followZ findObjects];
+    PFObject *follow = thisArrayForNow.firstObject;
+
+
+    PFQuery *query2 = [PFQuery queryWithClassName:@"Following"];
+    NSArray *thisArray = [query2 findObjects];
+    if (thisArray.count != 0)
+    {
+        [query2 whereKey:@"FollowObjectId" equalTo:follow.objectId];
+        NSArray *tempArray2 = [query2 findObjects];
+        self.followingLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)tempArray2.count];
+    }
+
+    PFQuery *query = [PFQuery queryWithClassName:@"Follower"];
+    NSArray *thisOtherArray = [query findObjects];
+    if (thisOtherArray.count != 0)
+    {
+        [query whereKey:@"FollowObjectId" equalTo:follow.objectId];
+        NSArray *tempArray = [query findObjects];
+        self.followersLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)tempArray.count];
+    }
+    
+    
+}
 
 
 @end
